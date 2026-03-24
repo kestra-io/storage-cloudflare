@@ -29,7 +29,7 @@ java {
 }
 
 group = "io.kestra.plugin"
-description = 'Plugin template for Kestra'
+description = 'Cloudflare R2 storage plugin for Kestra'
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
@@ -49,6 +49,11 @@ dependencies {
     annotationProcessor group: "io.kestra", name: "processor", version: kestraVersion
     compileOnly group: "io.kestra", name: "core", version: kestraVersion
     compileOnly group: "io.kestra", name: "script", version: kestraVersion
+
+    // AWS SDK v2 for S3-compatible R2 access
+    api platform('software.amazon.awssdk:bom')
+    api 'software.amazon.awssdk:s3'
+    api 'software.amazon.awssdk:apache-client'
 }
 
 
@@ -96,6 +101,7 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-engine"
     testImplementation "org.hamcrest:hamcrest"
     testImplementation "org.hamcrest:hamcrest-library"
+    testImplementation "org.wiremock:wiremock-jetty12:3.13.0"
 }
 
 /**********************************************************************************************************************\
@@ -175,8 +181,8 @@ jar {
     manifest {
         attributes(
             "X-Kestra-Name": project.name,
-            "X-Kestra-Title": "Template",
-            "X-Kestra-Group": project.group + ".templates",
+            "X-Kestra-Title": "Cloudflare R2",
+            "X-Kestra-Group": project.group + ".cloudflare.storage",
             "X-Kestra-Description": project.description,
             "X-Kestra-Version": project.version
         )
