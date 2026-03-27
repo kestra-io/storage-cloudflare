@@ -1,10 +1,10 @@
 {
-  "name": "plugin-template",
+  "name": "storage-cloudflare",
   "build": {
     "context": ".",
     "dockerfile": "Dockerfile"
   },
-  "workspaceFolder": "/workspaces/plugin-template",
+  "workspaceFolder": "/workspaces/storage-cloudflare",
   "forwardPorts": [8080],
   "customizations": {
     "vscode": {
