@@ -2,11 +2,13 @@
 
 ## What
 
-description = 'Plugin template for Kestra Exposes 1 plugin components (tasks, triggers, and/or conditions).
+- Implements the storage backend under `io.kestra.storage.cloudflare`.
+- Includes classes such as `CloudflareFileAttributes`, `CloudflareStorage`, `MetadataUtils`, `CloudflareConfig`.
 
 ## Why
 
-Enables Kestra workflows to interact with Template, allowing orchestration of Template-based operations as part of data pipelines and automation workflows.
+- This repository implements a Kestra storage backend for Cloudflare R2.
+- It stores namespace files and internal execution artifacts outside local disk.
 
 ## How
 
@@ -34,24 +36,11 @@ plugin-template/
 └── README.md
 ```
 
-### Important Commands
+## Local rules
 
-```bash
-# Build the plugin
-./gradlew shadowJar
+- Keep the scope on Kestra internal storage behavior, not workflow task semantics.
 
-# Run tests
-./gradlew test
+## References
 
-# Build without tests
-./gradlew shadowJar -x test
-```
-
-### Configuration
-
-All tasks and triggers accept standard Kestra plugin properties. Credentials should use
-`{{ secret('SECRET_NAME') }}` — never hardcode real values.
-
-## Agents
-
-**IMPORTANT:** This is a Kestra plugin repository (prefixed by `plugin-`, `storage-`, or `secret-`). You **MUST** delegate all coding tasks to the `kestra-plugin-developer` agent. Do NOT implement code changes directly — always use this agent.
+- https://kestra.io/docs/plugin-developer-guide
+- https://kestra.io/docs/plugin-developer-guide/contribution-guidelines
