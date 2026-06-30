@@ -2,6 +2,7 @@ package io.kestra.storage.cloudflare;
 
 import com.google.common.annotations.VisibleForTesting;
 import io.kestra.core.models.annotations.Plugin;
+import io.kestra.core.models.annotations.PluginProperty;
 import io.kestra.core.storages.FileAttributes;
 import io.kestra.core.storages.StorageInterface;
 import io.kestra.core.storages.StorageObject;
@@ -62,7 +63,9 @@ public class CloudflareStorage implements CloudflareConfig, StorageInterface {
     private String accountId;
 
     private String path;
+    @PluginProperty(secret = true)
     private String accessKeyId;
+    @PluginProperty(secret = true)
     private String secretAccessKey;
     private String endpointOverride;
 
