@@ -21,11 +21,11 @@ public interface CloudflareConfig {
     String getPath();
 
     @Schema(title = "R2 API token access key ID.")
-    @PluginProperty(group = "advanced")
+    @PluginProperty(group = "advanced", secret = true)
     String getAccessKeyId();
 
     @Schema(title = "R2 API token secret access key.")
-    @PluginProperty(group = "connection")
+    @PluginProperty(group = "connection", secret = true)
     String getSecretAccessKey();
 
     @Schema(
