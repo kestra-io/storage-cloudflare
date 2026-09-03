@@ -1,4 +1,4 @@
-group: io.kestra.plugin.cloudflare
+group: io.kestra.storage.cloudflare
 name: "cloudflare"
 title: "Cloudflare R2"
 description: "Cloudflare R2 object storage plugin for Kestra"
