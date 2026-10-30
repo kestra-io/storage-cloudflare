@@ -6,6 +6,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 import io.kestra.core.storages.FileAttributes;
 import io.kestra.core.storages.StorageInterface;
 import io.kestra.core.storages.StorageObject;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
@@ -69,9 +70,11 @@ public class CloudflareStorage implements CloudflareConfig, StorageInterface {
     private String secretAccessKey;
     private String endpointOverride;
 
+    @Hidden
     @Getter(AccessLevel.PRIVATE)
     private S3Client s3Client;
 
+    @Hidden
     @Getter(AccessLevel.PRIVATE)
     private S3AsyncClient s3AsyncClient;
 
